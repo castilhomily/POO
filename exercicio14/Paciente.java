@@ -1,4 +1,4 @@
-package exercicio02;
+package exercicio14;
 
 public class Paciente {
     String nome;

@@ -1,4 +1,4 @@
-package Static;
+package exercicio11;
 
 public class SenhaAtendimento {
     String paciente;

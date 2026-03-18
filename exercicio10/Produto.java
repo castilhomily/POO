@@ -1,4 +1,4 @@
-package MetodoConstrutor;
+package exercicio10;
 
 public class Produto {
     String nome;

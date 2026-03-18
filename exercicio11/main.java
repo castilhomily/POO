@@ -1,6 +1,6 @@
-package Static;
+package exercicio11;
 
-public class Main {
+public class main {
     public static void main(String[] args) {
         SenhaAtendimento s1 = new SenhaAtendimento("Ester");
         SenhaAtendimento s2 = new SenhaAtendimento("Mariana");
