@@ -1,39 +1,42 @@
 package exercicio09;
-
 import java.util.Random;
 
 public class BilheteUnico {
-        int numero;
-        double saldo;
-        String usuario;
-        String tipoTarifa;
-        final static double tarifaBase = 5.40;
+    int numero;
+    double saldo;
+    final static double tarifaBase = 5.4;
+    Usuario usuario;
 
-        public BilheteUnico(String usuario, String tipoTarifa) {
-            Random random = new Random();
-            this.numero = random.nextInt(1000, 9999);
-            this.saldo = 0;
-            this.usuario = usuario;
-            this.tipoTarifa = tipoTarifa;
-        }
+    public BilheteUnico(Usuario usuario) {
+        this.numero = gerarNumero();
+        this.saldo = 0;
+        this.usuario = usuario;
 
-        public void carregar(double valor) {
-            this.saldo += valor;
-        }
-
-        public boolean passarNaCatraca() {
-            double valor = tarifaBase;
-            if (tipoTarifa.equalsIgnoreCase("estudante") ||
-                    tipoTarifa.equalsIgnoreCase("professor")) {
-                valor = valor / 2;
-            }
-
-            if (saldo < valor) {
-                return false;
-            }
-
-            saldo -= valor;
-            return true;
-        }
     }
 
+    public int gerarNumero() {
+        Random random = new Random();
+        return random.nextInt(1000, 9999);
+    }
+
+    public void carregar(double valor) {
+        this.saldo += valor;
+    }
+
+    public double calcularTarifa() {
+        if (usuario.tipoTarifa.equalsIgnoreCase("comum")){
+            return tarifaBase;
+        }
+        return tarifaBase / 2;
+    }
+
+    public boolean passarNaCatraca() {
+        double valor = calcularTarifa();
+        if (saldo <= valor){
+            return false;
+        }
+        saldo-=valor;
+        return true;
+    }
+
+}
