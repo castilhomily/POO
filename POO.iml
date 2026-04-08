@@ -8,7 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/exercicio03" isTestSource="false" packagePrefix="Static" />
       <sourceFolder url="file://$MODULE_DIR$/exercicio04" isTestSource="false" packagePrefix="exercicio03" />
       <sourceFolder url="file://$MODULE_DIR$/exercicio05" isTestSource="false" packagePrefix="Static.Exercicio03" />
-      <sourceFolder url="file://$MODULE_DIR$/exercicio06" isTestSource="false" packagePrefix="exercicio06" />
+      <sourceFolder url="file://$MODULE_DIR$/exercicio07" isTestSource="false" packagePrefix="exercicio06" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
