@@ -12,7 +12,7 @@ public class Main {
         int opcao;
 
         do {
-            System.out.println("\n#### Bean & Code Café ####");
+            System.out.println("\n Bean & Code Café ");
             System.out.println("[1] Registrar novo pedido");
             System.out.println("[2] Adicionar item a um pedido");
             System.out.println("[3] Finalizar pedido");
