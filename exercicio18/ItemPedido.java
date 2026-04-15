@@ -1,5 +1,7 @@
 package exercicio18;
 
+import java.text.DecimalFormat;
+
 public class ItemPedido {
     private String nomeProduto;
     private double precoUnitario;
@@ -40,7 +42,9 @@ public class ItemPedido {
     }
 
     public String getDados() {
-        return nomeProduto + " | Quantidade: " + quantidade +
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+        return nomeProduto +
+                " | Quantidade: " + quantidade +
                 " | Unitário: R$ " + precoUnitario +
                 " | Subtotal: R$ " + calcularSubtotal();
     }

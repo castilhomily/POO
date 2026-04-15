@@ -1,6 +1,9 @@
 package exercicio18;
 
+import java.text.DecimalFormat;
+
 public class Pedido {
+
     private int numeroPedido;
     private Cliente cliente;
     private ItemPedido[] itens;
@@ -19,8 +22,32 @@ public class Pedido {
         return numeroPedido;
     }
 
+    public void setNumeroPedido(int numeroPedido) {
+        this.numeroPedido = numeroPedido;
+    }
+
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public ItemPedido[] getItens() {
+        return itens;
+    }
+
+    public void setItens(ItemPedido[] itens) {
+        this.itens = itens;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     public String getStatus() {
@@ -35,8 +62,6 @@ public class Pedido {
         if (index < itens.length) {
             itens[index] = item;
             index++;
-        } else {
-            System.out.println("Pedido cheio. Limite de 20 itens atingido.");
         }
     }
 
@@ -49,16 +74,18 @@ public class Pedido {
     }
 
     public String getDados() {
-        String dados = "\nPedido: " + numeroPedido + "\n";
-        dados += cliente.getDados() + "\n";
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+        String aux = "";
 
-        for (int i = 0; i < index; i++) {
-            dados += itens[i].getDados() + "\n";
+        aux += "Pedido: " + numeroPedido + "\n";
+        aux += cliente.getDados() + "\n";
+        aux += "Itens:\n";
+
+        for(int i = 0; i < index; i++) {
+            aux += "- " + itens[i].getDados() + "\n";
         }
 
-        dados += "Total: R$ " + calcularTotal() + "\n";
-        dados += "Status: " + status + "\n";
-
-        return dados;
+        aux += "Total: " + df.format(calcularTotal());
+        return aux;
     }
 }
