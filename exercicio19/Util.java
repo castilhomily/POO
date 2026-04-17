@@ -9,8 +9,7 @@ public class Util {
         aux += "[2] Pesquisar\n";
 
         do {
-            opcao = parseInt (showInputDialog(aux));
+            opcao = Integer.parseInt(showInputDialog(aux));
         } while (opcao != 6);
-
     }
 }

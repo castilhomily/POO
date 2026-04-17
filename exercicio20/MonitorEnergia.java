@@ -1,4 +1,4 @@
-package exercicio07;
+package exercicio20;
 
 public class MonitorEnergia {
     double[] consumo; //atributos

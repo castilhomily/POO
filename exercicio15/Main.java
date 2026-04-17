@@ -2,6 +2,7 @@ package exercicio15;
 
 import java.util.Scanner;
 
+
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static Veiculo[] veiculos = new Veiculo[10];
