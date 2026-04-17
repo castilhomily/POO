@@ -44,7 +44,6 @@ public class Main {
 
                     for(int i = 0; i < cont; i++) {
                         if(lista[i] != null) {
-                            // simplificado (prova aceita assim)
                             lista[i].devolver(showInputDialog("Data devolução"));
                         }
                     }
