@@ -1,5 +1,5 @@
 package exercicio23;
-
+//antigo exercicio 07
 public class MonitorDeEnergia {
     double[] consumo;
     int indice;
