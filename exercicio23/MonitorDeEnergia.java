@@ -13,7 +13,6 @@ public class MonitorDeEnergia {
             this.consumo[this.indice] = valor;
             ++this.indice;
         }
-
     }
 
     public double calcularMedia() {
