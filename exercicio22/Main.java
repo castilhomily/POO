@@ -9,14 +9,14 @@ public class Main {
         empregado[2] = new EmpregadoComissionado(3, "Maria", 500000, 20);
         empregado[3] = new EmpregadoHorista(4, "Ana", 160, 300);
 
-        // for tradicional
+        //for tradicional
         for(int i = 0; i < empregado.length; i++) {
             System.out.println(empregado[i].matricula);
             System.out.println(empregado[i].nome);
             System.out.println();
         }
 
-        // for genérico
+        //for genérico
         for(Empregado e : empregado) {
             System.out.println(e.matricula);
             System.out.println(e.nome);
