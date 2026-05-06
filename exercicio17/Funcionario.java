@@ -2,79 +2,77 @@ package exercicio17;
 
 import java.text.DecimalFormat;
 
-public class Departamento {
-    private String codigo;
+import java.text.DecimalFormat;
+
+public class Funcionario {
+    private String matricula;
     private String nome;
-    private Funcionario[] funcionarios;
-    private int index;
+    private String cargo;
+    private double salarioBase;
+    private double percentualBonus;
+    private boolean ativo;
 
-    public Departamento(String codigo, String nome) {
-        this.codigo = codigo;
+    public Funcionario(String matricula, String nome, String cargo, double salarioBase) {
+        this.matricula = matricula;
         this.nome = nome;
-        this.index = 0;
-        this.funcionarios = new Funcionario[5];
+        this.cargo = cargo;
+        this.salarioBase = salarioBase;
+        this.ativo = true;
     }
 
-    public void adicionarFuncionario(Funcionario f) {
-        if(index < funcionarios.length && f.isAtivo()) {
-            funcionarios[index++] = f;
+    public double calcularSalarioLiquido() {
+        double salario = salarioBase + salarioBase * percentualBonus / 100;
+        return salario * 0.85;
+    }
+
+
+    public void definirBonus(double percentual) {
+        if(percentual > 0) {
+            percentualBonus = percentual;
         }
     }
 
-    public double calcularFolhaTotalLiquida() {
-        double total = 0;
-        for(int i = 0; i < index; i++) {
-            if(funcionarios[i].isAtivo()) {
-                total += funcionarios[i].calcularSalarioLiquido();
-            }
-        }
-        return total;
+    public void desligar() {
+        ativo = false;
+        percentualBonus = 0;
     }
 
-    public int getTotalFuncionariosAtivos() {
-        int total = 0;
-        for(int i = 0; i < index; i++) {
-            if(funcionarios[i].isAtivo()) {
-                total++;
-            }
-        }
-        return total;
-    }
-
-    public Funcionario buscarFuncionario(String matricula) {
-        for(int i = 0; i < index; i++) {
-            if(funcionarios[i].getMatricula().equalsIgnoreCase(matricula)) {
-                return funcionarios[i];
-            }
-        }
-        return null;
-    }
-
-    public void removerFuncionario(String matricula) {
-        Funcionario aux = buscarFuncionario(matricula);
-        if(aux != null) {
-            aux.desligar();
-        }
-    }
-
-    public String exibirRelatorio() {
+    public String exibirResumo() {
         DecimalFormat df = new DecimalFormat("#,##0.00");
         String aux = "";
-        aux += "Departamento: " + nome + "\n";
-        aux += "Total de funcionários ativos: " + getTotalFuncionariosAtivos() + "\n";
-        aux += "Folha de pagamento: " + df.format(calcularFolhaTotalLiquida()) + "\n";
+        aux += "Matrícula: " + matricula + "\n";
+        aux += "Nome: " + nome + "\n";
+        aux += "Cargo: " + cargo + "\n";
+        aux += "Salário líquido: " + df.format(calcularSalarioLiquido()) + "\n";
         return aux;
     }
 
-    public String getCodigo() {
-        return codigo;
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void aplicarAumento(double percentual) {
+        salarioBase *= (1 + percentual / 100);
+    }
+
+    public String getMatricula() {
+        return matricula;
     }
 
     public String getNome() {
         return nome;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 }

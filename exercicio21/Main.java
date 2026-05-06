@@ -31,7 +31,7 @@ public class Main {
                     String data = showInputDialog("Data empréstimo:");
 
                     Livro l = new Livro(titulo, autor, isbn);
-                    Usuario u = new Usuario(nome , cpf);
+                    Usuario u = new Usuario(nome, cpf);
 
                     lista[cont] = new Emprestimo(l, u, data);
                     cont++;
